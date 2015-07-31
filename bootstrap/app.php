@@ -21,6 +21,11 @@ $app = new Laravel\Lumen\Application(
 
 $app->withFacades();
 
+$app->register('Collective\Html\HtmlServiceProvider');
+//$app->register('Collective\Html\InjectVarsServiceProvider');
+class_alias('Collective\Html\HtmlFacade', 'Html');
+class_alias('Collective\Html\FormFacade', 'Form');
+
 $app->withEloquent();
 
 /*

@@ -47,5 +47,5 @@ foreach ($controllers as $controller => $info) {
 }
 
 $app->get('/', function() {
-     return 'Welcome to Lumen.';
+     return view('pages.home');
 });
