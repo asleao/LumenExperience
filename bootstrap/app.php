@@ -19,9 +19,9 @@ $app = new Laravel\Lumen\Application(
 	realpath(__DIR__.'/../')
 );
 
- $app->withFacades();
+$app->withFacades();
 
- $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +58,9 @@ $app->singleton(
  $app->middleware([
       //'Illuminate\Cookie\Middleware\EncryptCookies',
       //'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-      // 'Illuminate\Session\Middleware\StartSession',
+       'Illuminate\Session\Middleware\StartSession',
       // 'Illuminate\View\Middleware\ShareErrorsFromSession',
-      // 'App\Http\Middleware\CorsMiddleware',
+       'App\Http\Middleware\CorsMiddleware',
       //'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
  ]);
 

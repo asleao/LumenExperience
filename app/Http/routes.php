@@ -46,9 +46,6 @@ foreach ($controllers as $controller => $info) {
     $app->get($info['index'].'/{id}', $info['controller'].'@view');
 }
 
-$app->get('/test/{prod}', function($prod) {
-        
-        $prod = \App\Models\Product::firstOrNew(['id' => $prod]);
-    
-	return $prod->purchaseProducts->first()->product;
+$app->get('/', function() {
+     return 'Welcome to Lumen.';
 });
