@@ -22,7 +22,7 @@ class ProductController extends Controller{
      */
     public function create(){
         $stocks = Stock::all();
-        return view('new_product', ['stocks' => $stocks]);
+        return view('pages.new_product', ['stocks' => $stocks]);
     }
     
     public function save(Request $request){
