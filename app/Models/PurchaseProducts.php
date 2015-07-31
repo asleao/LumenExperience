@@ -9,10 +9,10 @@ final class PurchaseProducts extends Model{
     protected $fillable = ['ammount', 'purchase_id', 'product_id'];
     
     public function purchase(){
-        return $this->hasOne('App\Models\Purchase','id');
+        return $this->belongsTo('App\Models\Purchase','purchase_id');
     }
     
     public function product(){
-        return $this->hasOne('App\Models\Product', 'id');
+        return $this->belongsTo('App\Models\Product', 'product_id');
     }
 }

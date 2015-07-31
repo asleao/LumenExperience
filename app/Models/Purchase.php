@@ -8,7 +8,7 @@ final class Purchase extends Model{
     protected $fillable = ['stock_id'];
     
     public function stock(){
-        return $this->hasOne('App\Models\Stock', 'id');
+        return $this->belongsTo('App\Models\Stock', 'id');
     }
     
     public function purchaseProducts(){

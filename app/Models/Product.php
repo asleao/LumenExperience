@@ -12,6 +12,6 @@ final class Product extends Model{
     }
     
     public function stock(){
-        return $this->hasOne('App\Models\Stock','id');
+        return $this->belongsTo('App\Models\Stock','stock_id');
     }
 }

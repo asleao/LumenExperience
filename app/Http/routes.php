@@ -45,3 +45,10 @@ foreach ($controllers as $controller => $info) {
     $app->post($info['index'].'/add', $info['controller'].'@save');
     $app->get($info['index'].'/{id}', $info['controller'].'@view');
 }
+
+$app->get('/test/{prod}', function($prod) {
+        
+        $prod = \App\Models\Product::firstOrNew(['id' => $prod]);
+    
+	return $prod->purchaseProducts->first()->product;
+});

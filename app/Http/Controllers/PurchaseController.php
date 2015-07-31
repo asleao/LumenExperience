@@ -14,9 +14,16 @@ class PurchaseController extends Controller{
         $purchases = Purchase::all();
         $response = [];
         foreach ($purchases as $purchase) {
+            
+            $prods = [];
+            $pps = $purchase->purchaseProducts()->get();
+            foreach ($pps as $pp) {
+                $prods[] = $pp->product->name;
+            }
+            
             $response[] = [
-                'purchase' => $purchase,
-                'products' => $purchase->purchaseProducts()->get()
+                'purchase' => $purchase->created_at->toDateString(),
+                'products' => $prods
             ];
         }
         return $response;
@@ -39,6 +46,7 @@ class PurchaseController extends Controller{
     
     public function save(Request $request){
         $products = $request->get('products');
+        $stockId = $request->get('stock_id');
         $purchase = Purchase::create(['stock_id' => $request->get('stock_id')]);
         $pp = [];
         
@@ -48,7 +56,7 @@ class PurchaseController extends Controller{
         foreach ($products as $product) {
             $ammount = $request->get($product.'_ammount');
             $pp[] = $this->savePurchaseProductRelation($purchase->id, $product, $ammount);
-            $this->updateProductTotal($product, $ammount);
+            $this->updateProductTotal($product, $ammount, $stockId);
         }
         
     	return ['purchase' => $purchase, 'products' => $pp];
@@ -62,11 +70,11 @@ class PurchaseController extends Controller{
         $purchaseProduct->ammount = $ammount;
         $purchaseProduct->save();
         
-        return PurchaseProducts::find($purchaseProduct->id);
+        return $purchaseProduct->product;
     }
     
-    private function updateProductTotal($prodId, $ammount){
-        $prod = Product::find($prodId);
+    private function updateProductTotal($prodId, $ammount, $stockId){
+        $prod = Product::where;
         $prod->total += $ammount;
         $prod->save();
     }
