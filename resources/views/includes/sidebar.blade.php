@@ -26,6 +26,17 @@
             </li>
             
             <li>
+                <a href="#"><i class="fa fa-cubes fa-fw"></i> Produtos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/product">Listar</a>
+                        <a href="/product/add">Adicionar</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            
+            <li>
                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
             <li>
