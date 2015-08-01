@@ -20,6 +20,7 @@ class CreatePurchaseProductTable extends Migration
             $table->foreign('purchase_id')
                   ->references('id')->on('purchases')
                   ->onDelete('cascade');
+            
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')
                   ->references('id')->on('products')
