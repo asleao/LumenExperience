@@ -21,13 +21,12 @@ Produtos
                     </div>
                     <div class="form-group">
                         <label>Nome</label>
-                        <input required="true" name="nome" type="text" class="form-control">
+                        <input required="true" name="name" type="text" class="form-control">
                     </div>
                     <label>Preço</label>
                     <div class="form-group input-group">
                         <span class="input-group-addon">R$</span>
                         <input required="true" min="0.01" name="unit_price" type="number" step="any" class="form-control">
-                        <span class="input-group-addon">.00</span>
                     </div>
                     <button type="submit" class="btn btn-default">Enviar</button>
 <!--                    <button type="reset" class="btn btn-default">Limpar</button>-->

@@ -103,6 +103,9 @@
 
         <!-- Custom Theme JavaScript -->
         {!! HTML::script('dist/js/sb-admin-2.js') !!}
+        
+<!--        Scripts adicionais incluidos em cada página-->
+        @yield('custom-scripts')
 
     </body>
 
