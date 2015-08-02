@@ -12,10 +12,10 @@ Produtos
             <div class="col-lg-6">
                 <form action="/product/add" method="POST" role="form">
                     <div class="form-group">
-                        <label>Estoque</label>
-                        <select required="true" name="stock_id" class="form-control">
-                            @foreach ($stocks as $stock)
-                                <option value="{{$stock->id}}">{{$stock->name}}</option>
+                        <label>Fornecedores</label>
+                        <select required="true" name="supplier_id[]" multiple="true" class="form-control">
+                            @foreach ($suppliers as $supplier)
+                                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                             @endforeach
                         </select>
                     </div>

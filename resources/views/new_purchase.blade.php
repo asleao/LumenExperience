@@ -4,7 +4,7 @@
 	<title>Cadastrar Compra</title>
         <meta charset="utf8">
 </head>
-<body>
+<body ng-controller="PurchaseController">
     <h3>Compra de paradas</h3>
     <form action="/purchase/add" method="POST">
         Stock
@@ -22,7 +22,7 @@
                     <th>Quantity</th>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    
                     <tr>
                         <td>
                             <input type="checkbox" class="products" name="products[]" value="{{$product->id}}"/>
@@ -32,7 +32,7 @@
                             <input readonly="true" type='number' min='1' name='{{$product->id}}_ammount' id='{{$product->id}}_ammount'/><br>
                         </td>
                     </tr>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
@@ -43,6 +43,15 @@
 <!--JQuery-->
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
+    
+    angular.module("StockController").controller("PurchaseController", function($http, $scope){
+        $scope.products = [];
+        
+    });
+    
+    
+    
+    
     $(document).ready(function(){
         $('input[type="checkbox"].products').change(function() {
             var qtdField = $('input#'+this.value+'_ammount');

@@ -10,4 +10,8 @@ final class Stock extends Model{
     public function stocker(){
         return $this->hasOne('App\Models\Employee','id');
     }
+    
+    public function stockProducts(){
+        return $this->hasMany('App\Models\StockProducts','stock_id');
+    }
 }

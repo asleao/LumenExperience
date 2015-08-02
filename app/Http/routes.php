@@ -49,3 +49,5 @@ foreach ($controllers as $controller => $info) {
 $app->get('/', function() {
      return view('pages.home');
 });
+
+$app->get('/stock/{id}/products', 'App\Http\Controllers\StockController@getProducts');

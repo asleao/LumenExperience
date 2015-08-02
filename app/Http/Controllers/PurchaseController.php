@@ -6,6 +6,7 @@ use App\Models\Purchase;
 use App\Models\PurchaseProducts;
 use App\Models\Product;
 use App\Models\Stock;
+use App\Models\StockProducts;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller{
@@ -39,43 +40,37 @@ class PurchaseController extends Controller{
      * @return {view}
      */
     public function create(){
-        $products = Product::all();
         $stocks = Stock::all();
-        return view('new_purchase', ['products' => $products, 'stocks' => $stocks]);
+        return view('pages.new_purchase', ['stocks' => $stocks]);
     }
     
     public function save(Request $request){
         $products = $request->get('products');
         $stockId = $request->get('stock_id');
+        
         $purchase = Purchase::create(['stock_id' => $request->get('stock_id')]);
-        $pp = [];
         
         /**
          * Precisa incrementar a quantidade de produtos no estoque pelo "ammount"
          */
         foreach ($products as $product) {
             $ammount = $request->get($product.'_ammount');
-            $pp[] = $this->savePurchaseProductRelation($purchase->id, $product, $ammount);
-            $this->updateProductTotal($product, $ammount, $stockId);
+            
+            $sp = StockProducts::query()
+                    ->where('stock_id', $stockId)
+                    ->where('product_id', $product)
+                    ->first();
+            
+            PurchaseProducts::create([
+               'purchase_id' => $purchase->id,
+               'stock_product_id' => $sp->id,
+               'ammount' => $ammount
+            ]);
+            
+            $sp->ammount += $ammount;
+            $sp->save();
         }
         
-    	return ['purchase' => $purchase, 'products' => $pp];
-    }
-    
-    private function savePurchaseProductRelation($purchaseId, $prodId, $ammount){
-        
-        $purchaseProduct = new \App\Models\PurchaseProducts();
-        $purchaseProduct->purchase_id = $purchaseId;
-        $purchaseProduct->product_id = $prodId;
-        $purchaseProduct->ammount = $ammount;
-        $purchaseProduct->save();
-        
-        return $purchaseProduct->product;
-    }
-    
-    private function updateProductTotal($prodId, $ammount, $stockId){
-        $prod = Product::where;
-        $prod->total += $ammount;
-        $prod->save();
-    }
+    	return view('pages.home');
+    }    
 }

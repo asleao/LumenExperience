@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="StockController">
 
     <head>
 
@@ -8,7 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <script>
+            angular.module("StockController",[]);
+            
+            
+        </script>
+        
         <title>Stock Control</title>
 
         <!-- Bootstrap Core CSS -->
