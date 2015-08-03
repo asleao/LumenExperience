@@ -17,11 +17,12 @@ class SupplierController extends Controller{
     }
     
     public function create(){
-        return view('new_supplier');
+        return view('pages.new_supplier');
     }
     
     public function save(Request $request){
     	$supplier = Supplier::create($request->all());
-        return $supplier;
+        $suppliers = Supplier::all(); 
+        return view('pages.suppliers', ['suppliers' => $suppliers]);   	
     }
 }

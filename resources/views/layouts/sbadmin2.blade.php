@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <script>
             angular.module("StockController",[]);

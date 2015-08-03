@@ -16,26 +16,26 @@ Funcionarios
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>                                
+                                <th>Nome</th>  
                                 <th>Tipo</th>  
                                 <th>CPF</th>
-                                <th>Telefone</th>
                                 <th>Data de Nascimento</th>
-                                <th>Endereço</th>
+                                 <th>Telefone</th>                                
+                                <th>Endereço</th>                                
                                 <th>Data de Criação</th>
-                                <th>Data de Modificação</th>
+                                <th>Data de Modificação</th>                                
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($employees as $employee)
                             <tr>
                                 <td>{{$employee->id}}</td>
-                                <td>{{$employee->name}}</td>                                
+                                <td>{{$employee->name}}</td> 
                                 <td>{{$employee->type}}</td>
                                 <td>{{$employee->cpf}}</td>                                
-                                <td>{{$employee->phone}}</td>
                                 <td>{{$employee->birth_date}}</td>
-                                <td>{{$employee->address}}</td>
+                                <td>{{$employee->phone}}</td>
+                                <td>{{$employee->address}}</td>                                
                                 <td>{{$employee->created_at}}</td>
                                 <td>{{$employee->updated_at}}</td>
                             </tr>
