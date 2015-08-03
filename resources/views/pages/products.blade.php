@@ -16,8 +16,7 @@ Produtos
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>
-                                <th>Estoque</th>
+                                <th>Nome</th>                                
                                 <th>Preço Unitário</th>
                                 <th>Data de Criação</th>
                                 <th>Data de Modificação</th>
@@ -27,8 +26,7 @@ Produtos
                             @foreach($products as $product)
                             <tr>
                                 <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td>{{$product->stock->name}}</td>
+                                <td>{{$product->name}}</td>                                
                                 <td>{{$product->unit_price}}</td>
                                 <td>{{$product->created_at}}</td>
                                 <td>{{$product->updated_at}}</td>

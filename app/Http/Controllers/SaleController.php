@@ -56,7 +56,7 @@ class SaleController extends Controller{
         $sale = Sales::create([
             'stock_id' => $stockId,
             'customer_id' => $customerId,
-            'salesman_id'=> $salesmanId
+            'employee_id'=> $salesmanId
         ]);        
         
         /**
