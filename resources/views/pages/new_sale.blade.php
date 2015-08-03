@@ -13,7 +13,7 @@ Produtos
                 <form action="/sale/add" method="POST" role="form">
                     <div class="form-group">
                         <label>Cliente</label>
-                        <select required="true" name="customer_id[]"  class="form-control">
+                        <select required="true" name="customer_id"  class="form-control">
                             @foreach ($customers as $customer)
                                 <option value="{{$customer->id}}">{{$customer->name}}</option>
                             @endforeach
@@ -21,7 +21,7 @@ Produtos
                     </div>
                     <div class="form-group">
                         <label>Vendedor</label>
-                        <select required="true" name="employee_id[]"  class="form-control">
+                        <select required="true" name="employee_id"  class="form-control">
                             @foreach ($employees as $employee)
                                 <option value="{{$employee->id}}">{{$employee->name}}</option>
                             @endforeach

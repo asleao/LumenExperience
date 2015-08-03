@@ -4,7 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 final class SalesProducts extends Model{
-    protected $table = 'sale_product';
+    protected $table = 'sale_products';
     public $amount;
     protected $fillable = ['ammount', 'sale_id', 'stock_product_id'];
     
