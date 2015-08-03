@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller{
     
     public function index(){
-    	return Supplier::all();    	
+    	$suppliers = Supplier::all(); 
+        return view('pages.suppliers', ['suppliers' => $suppliers]);   	
     }
 
     public function view($id){

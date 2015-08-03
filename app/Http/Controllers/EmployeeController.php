@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller{
     
     public function index(){
-    	return Employee::all();    	
+    	$employees = Employee::all();         
+        return view('pages.employees', ['employees' => $employees]);     	
     }
 
     public function view($id){
