@@ -33,6 +33,10 @@ $controllers = [
         'controller' => 'App\Http\Controllers\PurchaseController',
         'index' => '/purchase'  
     ],
+    'sale' =>[
+        'controller' => 'App\Http\Controllers\SaleController',
+        'index' => '/sale'  
+    ],
     'product' =>[
         'controller' => 'App\Http\Controllers\ProductController',
         'index' => '/product'  
