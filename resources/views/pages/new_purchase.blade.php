@@ -16,7 +16,7 @@ Produtos
                         
                         <input type="hidden" name="stock_id" value="@{{stock_id}}"/>
                         
-                        <select ng-options="stock.id as stock.name for stock in stocks" ng-model="stock_id" 
+                        <select class ="form-control" ng-options="stock.id as stock.name for stock in stocks" ng-model="stock_id" 
                                 ng-change="loadProducts()">
                         </select>
                     </div>
