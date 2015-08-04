@@ -47,7 +47,7 @@ foreach ($controllers as $controller => $info) {
     $app->get($info['index'], $info['controller'].'@index');
     $app->get($info['index'].'/add', $info['controller'].'@create');
     $app->post($info['index'].'/add', $info['controller'].'@save');
-    $app->get($info['index'].'/{id}', $info['controller'].'@view');
+    $app->get($info['index'].'/view/{id}', $info['controller'].'@view');
 }
 
 $app->get('/', function() {
@@ -55,3 +55,8 @@ $app->get('/', function() {
 });
 
 $app->get('/stock/{id}/products', 'App\Http\Controllers\StockController@getProducts');
+$app->get('/sale/filter', 'App\Http\Controllers\SaleController@filter');
+$app->get('/sale/find', 'App\Http\Controllers\SaleController@find');
+
+$app->post('/employee/delete', 'App\Http\Controllers\EmployeeController@delete');
+$app->get('/employee/edit/{id}', 'App\Http\Controllers\EmployeeController@edit');

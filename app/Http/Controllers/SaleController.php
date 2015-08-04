@@ -13,14 +13,15 @@ use App\Models\Employee;
 class SaleController extends Controller{
     
     public function index(){
-        $sales = Sale::all();
+        $sales = Sales::all();
         $response = [];
         foreach ($sales as $sale) {
             
             $prods = [];
-            $pps = $sale->salesProducts()->get();
+            $pps = $sale->saleProducts()->get();
+            
             foreach ($pps as $pp) {
-                $prods[] = $pp->product->name;
+                $prods[] = $pp->stockProduct->product->name;
             }
             
             $response[] = [
@@ -30,10 +31,42 @@ class SaleController extends Controller{
         }
         return $response;
     }
+    
+    public function filter(Request $request){
+        
+        $iniDate = $request->get("dataIni");
+        $endDate = $request->get("dataFim");
+        
+        $column = 'created_at';
+        $sales = Sales::query()
+                    ->where($column, '>=', $iniDate.' 00:00')
+                    ->where($column, '<=', $endDate.' 23:59')
+                    ->get();
+        
+        return view('pages.sales', ['sales' => $sales]);
+    }
+    
+    public function find(){
+        return view('pages.find_sales');
+    }
 
     public function view($id){
-        $sale = Sale::query()->find($id);
-        return ['sale' => $sale, 'products' => $sale->saleProducts()->get()];
+        $sale = Sales::query()->find($id);
+        
+        $saleProducts = $sale->saleProducts()->get();
+        
+        $products = [];
+        
+        foreach ($saleProducts as $sp) {
+            $products[] = [
+                'productId' => $sp->stockProduct->product->id,
+                'ammount' => $sp->ammount,
+                'name' => $sp->stockProduct->product->name,
+                'unit_price' => $sp->stockProduct->product->unit_price
+            ];
+        }
+        
+        return view('pages.sale_products', ['sale' => $sale, 'products' => $products]);
     }
     
     /**

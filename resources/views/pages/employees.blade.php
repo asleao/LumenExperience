@@ -23,7 +23,8 @@ Funcionarios
                                  <th>Telefone</th>                                
                                 <th>Endereço</th>                                
                                 <th>Data de Criação</th>
-                                <th>Data de Modificação</th>                                
+                                <th>Data de Modificação</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +39,13 @@ Funcionarios
                                 <td>{{$employee->address}}</td>                                
                                 <td>{{$employee->created_at}}</td>
                                 <td>{{$employee->updated_at}}</td>
+                                <td>
+                                    <form method="POST" action="/employee/delete">
+                                        <input type="hidden" value="{{$employee->id}}"/>
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
+                                    <a href="/employee/edit/{{$employee->id}}" class="btn btn-warning">Editar</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
