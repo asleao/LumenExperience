@@ -13,12 +13,12 @@ Vendas
                 <form action="/sale/filter" method="GET">
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
-                            <label for = "name">Data Inicial: </label>
+                            <label for = "dataIni">Data Inicial: </label>
                             <input type="date" id ="dataIni" name="dataIni" class ="form-control"/>
                         </div>
 
                         <div class="form-group col-lg-6">
-                            <label for = "cnpj">Data Final: </label>
+                            <label for = "dataFim">Data Final: </label>
                             <input type="date" id="dataFim" name="dataFim" class ="form-control"/>
                         </div>
                     </div>
@@ -43,12 +43,8 @@ Vendas
 
 <script>
     $(document).ready(function () {
-        $('#dataTables-employees').DataTable({
-            responsive: true
-        });
-        $("#data").mask("9999-99-99",{placeholder:"____/__/__"});
-        $("#phone").mask("9999-9999",{placeholder:"____-____"});
-        $("#cnpj").mask("99.999.99",{placeholder:"__.___.__"});
+        $("#dataIni").mask("9999-99-99",{placeholder:"____/__/__"});
+        $("#dataFim").mask("9999-99-99",{placeholder:"____/__/__"});
     });
     
 </script>

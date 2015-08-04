@@ -16,9 +16,7 @@ Compras
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Data da Compra</th>  
-                                <th>Cliente</th>  
-                                <th>Vendedor</th>
+                                <th>Data da Compra</th>                                 
                                 <th>Estoque</th>
                                 <th>Detalhar</th>
                             </tr>
@@ -27,9 +25,7 @@ Compras
                             @foreach($purchases as $purchase)
                             <tr>
                                 <td>{{$purchase->id}}</td>
-                                <td>{{$purchase->created_at}}</td> 
-                                <td>{{$purchase->customer->name}}</td>
-                                <td>{{$purchase->employee->name}}</td>                              
+                                <td>{{$purchase->created_at}}</td>                                                              
                                 <td>{{$purchase->stock->name}}</td>
                                 <td>
                                     <a class="btn btn-default" href="/purchase/view/{{$purchase->id}}">

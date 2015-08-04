@@ -52,8 +52,8 @@
                 <a href="#"><i class="fa fa-dropbox fa-fw"></i> Produtos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/product">Listar</a>
                         <a href="/product/add">Adicionar</a>
+                        <a href="/product">Listar</a>                        
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

@@ -41,6 +41,7 @@ class PurchaseController extends Controller{
                     ->where($column, '<=', $endDate.' 23:59')
                     ->get();
         
+        
         return view('pages.purchases', ['purchases' => $purchases]);
     }
     
@@ -49,7 +50,7 @@ class PurchaseController extends Controller{
     }
 
     public function view($id){
-        $purchase = Purchases::query()->find($id);
+        $purchase = Purchase::query()->find($id);
         
         $purchaseProducts = $purchase->purchaseProducts()->get();
         
