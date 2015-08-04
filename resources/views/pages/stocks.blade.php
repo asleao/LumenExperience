@@ -1,35 +1,39 @@
 @extends('layouts.sbadmin2')
 @section('brand-title')
-Produtos
+Estoques
 @stop
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Produtos Cadastrados
+                Estoques Cadastrados
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="dataTable_wrapper">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-products">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-stocks">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>
-                                <th>Preço Unitário</th>
-                                <th>Data de Criação</th>
-                                <th>Data de Modificação</th>
+                                <th>Nome</th>  
+                                <th>Tipo</th>  
+                                <th>Estoquista</th>
+                                <th>Detalhar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($stocks as $stock)
                             <tr>
-                                <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td>{{$product->unit_price}}</td>
-                                <td>{{$product->created_at}}</td>
-                                <td>{{$product->updated_at}}</td>
+                                <td>{{$stock->id}}</td>
+                                <td>{{$stock->name}}</td> 
+                                <td>{{$stock->type}}</td>
+                                <td>{{$stock->stocker->name}}</td>                               
+                                <td>
+                                    <a class="btn btn-default" href="/stock/{{$stock->id}}">
+                                        Visualizar
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -49,7 +53,7 @@ Produtos
 
 <script>
     $(document).ready(function () {
-        $('#dataTables-products').DataTable({
+        $('#dataTables-employees').DataTable({
             responsive: true
         });
     });

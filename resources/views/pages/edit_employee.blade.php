@@ -5,39 +5,45 @@ Funcionarios
 @section('content')
 <div class="panel panel-default" ng-controller="PurchaseController">
     <div class="panel-heading">
-        Novo Funcionário
+        Adicionar Funcionario
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
                 <form action="/employee/add" method="POST">
+                    
+                    <input type="hidden" name="id" value="{{$employee->id}}"/>
                     <div class="form-group">
                         <label for = "name">Nome: </label>
-                        <input id ="name" name="name" class ="form-control"/>
+                        <input id ="name" name="name" value="{{$employee->name}}" class ="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for = "type">Tipo: </label>
                         <select id="type" name="type" class ="form-control">
                             @foreach ($types as $type)
-                                <option>{{$type}}</option>
+                                @if($type === $employee->type)
+                                    <option selected="true">{{$type}}</option>
+                                @else
+                                    <option>{{$type}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for = "cpf">CPF: </label>
-                        <input id="cpf" name="cpf" class ="form-control"/>
+                        <input id="cpf" name="cpf" value="{{$employee->cpf}}" class ="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for = "phone">Telefone: </label>
-                        <input id="phone" name="phone" class ="form-control" />
+                        <input id="phone" name="phone" value="{{$employee->phone}}" class ="form-control" />
                     </div>
                     <div class="form-group">
                         <label for = "data">Data de Nascimento: </label>                        
-                        <input id="data" type="date" name="birth_date" class ="form-control" />
+                        <input id="data" type="date" name="birth_date" value="{{$employee->birth_date}}" class ="form-control" />
                     </div>
                     <div class="form-group">
                         <label for = "address">Endereço: </label>                        
-                        <input id= "address" name="address" class ="form-control" />
+                        <input id= "address" name="address" value="{{$employee->address}}" class ="form-control" />
                     </div>
                     <br/>
                     <br/>
