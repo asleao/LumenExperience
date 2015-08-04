@@ -12,7 +12,7 @@ Clientes
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="dataTable_wrapper">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-customers">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-customers" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -23,6 +23,7 @@ Clientes
                                 <th>Endereço</th>
                                 <th>Data de Criação</th>
                                 <th>Data de Modificação</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,7 @@ Clientes
                                 <td>{{$customer->address}}</td>
                                 <td>{{$customer->created_at}}</td>
                                 <td>{{$customer->updated_at}}</td>
+                                <td><a class="btn btn-default fa-edit" href=""/></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -53,11 +55,12 @@ Clientes
 {!! HTML::script('bower_components/datatables/media/js/jquery.dataTables.min.js') !!}
 {!! HTML::script('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') !!}
 
+
 <script>
     $(document).ready(function () {
         $('#dataTables-customers').DataTable({
             responsive: true
         });
-    });
+    });    
 </script>
 @stop

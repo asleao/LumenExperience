@@ -5,7 +5,7 @@ Clientes
 @section('content')
 <div class="panel panel-default" ng-controller="PurchaseController">
     <div class="panel-heading">
-        Adicionar Cliente
+       Novo Cliente
     </div>
     <div class="panel-body">
         <div class="row">

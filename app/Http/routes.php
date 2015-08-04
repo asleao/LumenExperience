@@ -48,6 +48,7 @@ foreach ($controllers as $controller => $info) {
     $app->get($info['index'].'/add', $info['controller'].'@create');
     $app->post($info['index'].'/add', $info['controller'].'@save');
     $app->get($info['index'].'/{id}', $info['controller'].'@view');
+    $app->put($info['index'].'/{id}', $info['controller'].'@update');
 }
 
 $app->get('/', function() {
@@ -55,3 +56,5 @@ $app->get('/', function() {
 });
 
 $app->get('/stock/{id}/products', 'App\Http\Controllers\StockController@getProducts');
+
+

@@ -1,11 +1,11 @@
 @extends('layouts.sbadmin2')
 @section('brand-title')
-Produtos
+Estoque
 @stop
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        Cadastro de novo Estoque
+        Novo Estoque
     </div>
     <div class="panel-body">
         <div class="row">

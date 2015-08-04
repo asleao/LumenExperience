@@ -20,6 +20,12 @@ class CustomerController extends Controller{
         return view('pages.new_customer');
     }
     
+    public function update(Request $request, $id){
+        $customer = Customer::updateOrCreate($request->all());
+        $customers = Customer::all(); 
+        return view('pages.customers', ['customers' => $customers]);
+    }
+    
     public function save(Request $request){
     	$customer = Customer::create($request->all());
         $customers = Customer::all(); 
