@@ -47,26 +47,14 @@ foreach ($controllers as $controller => $info) {
     $app->get($info['index'], $info['controller'].'@index');
     $app->get($info['index'].'/add', $info['controller'].'@create');
     $app->post($info['index'].'/add', $info['controller'].'@save');
-<<<<<<< HEAD
-    $app->get($info['index'].'/{id}', $info['controller'].'@view');
-    $app->put($info['index'].'/{id}', $info['controller'].'@update');
-=======
     $app->get($info['index'].'/view/{id}', $info['controller'].'@view');
->>>>>>> cd213ce3f8bad5cb722c0ae0e9dabe29f64cccab
 }
-
 $app->get('/', function() {
      return view('pages.home');
 });
-
 $app->get('/stock/{id}/products', 'App\Http\Controllers\StockController@getProducts');
-<<<<<<< HEAD
-
-
-=======
 $app->get('/sale/filter', 'App\Http\Controllers\SaleController@filter');
 $app->get('/sale/find', 'App\Http\Controllers\SaleController@find');
-
 $app->post('/employee/delete', 'App\Http\Controllers\EmployeeController@delete');
 $app->get('/employee/edit/{id}', 'App\Http\Controllers\EmployeeController@edit');
->>>>>>> cd213ce3f8bad5cb722c0ae0e9dabe29f64cccab
+
