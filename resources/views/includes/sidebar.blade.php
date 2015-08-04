@@ -53,6 +53,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/stock/add">Adicionar</a>
+                        <a href="/stock">Listar</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

@@ -12,14 +12,31 @@ use Illuminate\Http\Request;
 class StockController extends Controller{
     
     public function index(){
-    	return Stock::all();
-//        Busca Relacionados
-//        $stock = Stock::all()->first();
-//        return $stock->stocker()->first();
+    	return view('pages.stocks', ['stocks' => Stock::all()]);
     }
 
+    // localhost/stock/{id}
     public function view($id){
-        return Stock::query()->find($id);
+        
+        $stock = Stock::query()->find($id);
+        $stockProducts = $stock->stockProducts;
+        $products = [];
+        
+        foreach ($stockProducts as $sp) {
+            $products[] = [
+                'productId' => $sp->product->id,
+                'ammount' => $sp->ammount,
+                'name' => $sp->product->name,
+                'unit_price' => $sp->product->unit_price
+            ];
+        }
+        
+        $response = [
+            'stock' => $stock,
+            'products' => $products
+        ];
+        
+        return view('pages.stock_products', $response);
     }
     
     public function create(){

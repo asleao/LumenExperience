@@ -19,7 +19,7 @@ Funcionarios
                         <label for = "type">Tipo: </label>
                         <select id="type" name="type" class ="form-control">
                             @foreach ($types as $type)
-                            <option>{{$type}}</option>
+                                <option>{{$type}}</option>
                             @endforeach
                         </select>
                     </div>
