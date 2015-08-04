@@ -76,7 +76,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/purchase/add">Nova</a>
-                        <a href="/purchase/find">Buscar</a>
+                        <a href="/purchase/find">Buscar</a>                        
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
