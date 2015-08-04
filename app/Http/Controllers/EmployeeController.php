@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller{
     
     public function index(){
-    	return Employee::all();    	
+    	$employees = Employee::all();         
+        return view('pages.employees', ['employees' => $employees]);     	
     }
 
     public function view($id){
@@ -18,11 +19,12 @@ class EmployeeController extends Controller{
     
     public function create(){
         $types = EmployeeType::getType();
-        return view('new_employee', ['types' => $types]);
+        return view('pages.new_employee', ['types' => $types]);
     }
     
     public function save(Request $request){
     	$employee = Employee::create($request->all());
-        return $employee;
+        $employees = Employee::all();         
+        return view('pages.employees', ['employees' => $employees]);          
     }
 }

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller{
     
     public function index(){
-    	return Customer::all();    	
+    	$customers = Customer::all(); 
+        return view('pages.customers', ['customers' => $customers]);
     }
 
     public function view($id){
@@ -16,11 +17,12 @@ class CustomerController extends Controller{
     }
     
     public function create(){
-        return view('new_customer');
+        return view('pages.new_customer');
     }
     
     public function save(Request $request){
     	$customer = Customer::create($request->all());
-        return $customer;
+        $customers = Customer::all(); 
+        return view('pages.customers', ['customers' => $customers]);
     }
 }

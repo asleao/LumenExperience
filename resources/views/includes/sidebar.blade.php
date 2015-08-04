@@ -20,6 +20,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/customer/add">Adicionar</a>
+                        <a href="/customer">Listar</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -30,6 +31,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/supplier/add">Adicionar</a>
+                        <a href="/supplier">Listar</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -40,6 +42,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/employee/add">Adicionar</a>
+                        <a href="/employee">Listar</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

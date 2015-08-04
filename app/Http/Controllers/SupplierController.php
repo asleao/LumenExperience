@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller{
     
     public function index(){
-    	return Supplier::all();    	
+    	$suppliers = Supplier::all(); 
+        return view('pages.suppliers', ['suppliers' => $suppliers]);   	
     }
 
     public function view($id){
@@ -16,11 +17,12 @@ class SupplierController extends Controller{
     }
     
     public function create(){
-        return view('new_supplier');
+        return view('pages.new_supplier');
     }
     
     public function save(Request $request){
     	$supplier = Supplier::create($request->all());
-        return $supplier;
+        $suppliers = Supplier::all(); 
+        return view('pages.suppliers', ['suppliers' => $suppliers]);   	
     }
 }
