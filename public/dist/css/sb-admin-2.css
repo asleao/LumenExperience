@@ -4,6 +4,12 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+.dataTables_filter {
+   width: 50%;
+   float: right;
+   text-align: right;
+}
 body {
     background-color: #f8f8f8;
 }
