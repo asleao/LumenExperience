@@ -55,7 +55,7 @@ Fornecedores
         });
         $("#data").mask("9999-99-99",{placeholder:"____/__/__"});
         $("#phone").mask("9999-9999",{placeholder:"____-____"});
-        $("#cnpj").mask("99.999.99",{placeholder:"__.___.__"});
+        $("#cnpj").mask("99.999.999/9999-99",{placeholder:"__.___.___/____-__"});
     });
     
 </script>

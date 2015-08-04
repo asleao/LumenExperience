@@ -16,7 +16,7 @@ Vendas
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Data da Compra</th>  
+                                <th>Data da Venda</th>  
                                 <th>Cliente</th>  
                                 <th>Vendedor</th>
                                 <th>Estoque</th>

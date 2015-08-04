@@ -1,39 +1,33 @@
 @extends('layouts.sbadmin2')
 @section('brand-title')
-Estoques
+Compra
 @stop
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Estoques Cadastrados
+                Detalhes da compra
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="dataTable_wrapper">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-stocks">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-purchase-product">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Nome</th>  
-                                <th>Tipo</th>  
-                                <th>Estoquista</th>
-                                <th>Detalhar</th>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($stocks as $stock)
+                            @foreach($products as $product)
                             <tr>
-                                <td>{{$stock->id}}</td>
-                                <td>{{$stock->name}}</td> 
-                                <td>{{$stock->type}}</td>
-                                <td>{{$stock->stocker->name}}</td>                               
-                                <td>
-                                    <a class="btn btn-default" href="/stock/{{$stock->id}}">
-                                        Visualizar
-                                    </a>
-                                </td>
+                                <td>{{$product['productId']}}</td>
+                                <td>{{$product['name']}}</td> 
+                                <td>{{$product['unit_price']}}</td>
+                                <td>{{$product['ammount']}}</td>                     
                             </tr>
                             @endforeach
                         </tbody>
@@ -53,7 +47,7 @@ Estoques
 
 <script>
     $(document).ready(function () {
-        $('#dataTables-stocks').DataTable({
+        $('#dataTables-employees').DataTable({
             responsive: true
         });
     });

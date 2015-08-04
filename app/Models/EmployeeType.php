@@ -17,7 +17,7 @@ class EmployeeType {
 
     public static function getType($name = null){
         
-        $types = ['SALESMAN','MANAGER','STOCKER'];
+        $types = ['VENDEDOR','GERENTE','ESTOQUISTA'];
         
         if($name === null){
             return $types;

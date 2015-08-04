@@ -55,6 +55,8 @@ $app->get('/', function() {
 $app->get('/stock/{id}/products', 'App\Http\Controllers\StockController@getProducts');
 $app->get('/sale/filter', 'App\Http\Controllers\SaleController@filter');
 $app->get('/sale/find', 'App\Http\Controllers\SaleController@find');
+$app->get('/purchase/filter', 'App\Http\Controllers\PurchaseController@filter');
+$app->get('/purchase/find', 'App\Http\Controllers\PurchaseController@find');
 $app->post('/employee/delete', 'App\Http\Controllers\EmployeeController@delete');
 $app->get('/employee/edit/{id}', 'App\Http\Controllers\EmployeeController@edit');
 

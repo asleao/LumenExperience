@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Models\SupplierProducts;
 
 class ProductController extends Controller{
     
@@ -27,15 +28,15 @@ class ProductController extends Controller{
     }
     
     public function save(Request $request){
-//    	$product = Product::create($request->all());
-//        return $product;
         $suppliers = $request->get('supplier_id');
         $product = Product::create($request->all());
         foreach ($suppliers as $supp) {
-            \App\Models\SupplierProducts::create([
+            SupplierProducts::create([
                 'product_id' => $product->id,
                 'supplier_id' => $supp
             ]);
         }
+        $products = Product::all(); 
+        return view('pages.products', ['products' => $products]); 
     }
 }

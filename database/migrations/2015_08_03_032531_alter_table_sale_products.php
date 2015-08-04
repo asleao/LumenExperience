@@ -12,14 +12,14 @@ class AlterTableSaleProducts extends Migration
      */
     public function up()
     {
-        Schema::table('sale_products', function (Blueprint $table) {
-            $table->dropForeign('sale_products_product_id_foreign');
-            $table->dropColumn('product_id');
-            $table->integer('stock_product_id')->unsigned();
-            $table->foreign('stock_product_id')
-                  ->references('id')->on('stock_products')
-                  ->onDelete('cascade');
-        });
+//        Schema::table('sale_products', function (Blueprint $table) {
+//            $table->dropForeign('sale_products_product_id_foreign');
+//            $table->dropColumn('product_id');
+//            $table->integer('stock_product_id')->unsigned();
+//            $table->foreign('stock_product_id')
+//                  ->references('id')->on('stock_products')
+//                  ->onDelete('cascade');
+//        });
     }
 
     /**

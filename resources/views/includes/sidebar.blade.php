@@ -48,6 +48,17 @@
                 <!-- /.nav-second-level -->
             </li>
             
+            <li>
+                <a href="#"><i class="fa fa-dropbox fa-fw"></i> Produtos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/product">Listar</a>
+                        <a href="/product/add">Adicionar</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            
              <li>
                 <a href="#"><i class="fa  fa-dropbox   fa-fw"></i> Estoque <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -57,24 +68,15 @@
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
-            </li>
+            </li>            
             
-            <li>
-                <a href="#"><i class="fa fa-cubes fa-fw"></i> Produtos<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="/product">Listar</a>
-                        <a href="/product/add">Adicionar</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
 
             <li>
                 <a href="#"><i class="fa  fa-dropbox   fa-fw"></i> Compra <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="/purchase/add">Nova</a>
+                        <a href="/purchase/find">Buscar</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

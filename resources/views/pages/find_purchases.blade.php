@@ -1,16 +1,16 @@
 @extends('layouts.sbadmin2')
 @section('brand-title')
-Vendas
+Compras
 @stop
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        Filtrar Vendas
+        Filtrar Compras
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
-                <form action="/sale/filter" method="GET">
+                <form action="/purchase/filter" method="GET">
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label for = "name">Data Inicial: </label>

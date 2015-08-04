@@ -30,9 +30,41 @@ class PurchaseController extends Controller{
         return $response;
     }
 
+     public function filter(Request $request){
+        
+        $iniDate = $request->get("dataIni");
+        $endDate = $request->get("dataFim");
+        
+        $column = 'created_at';
+        $purchases = Purchase::query()
+                    ->where($column, '>=', $iniDate.' 00:00')
+                    ->where($column, '<=', $endDate.' 23:59')
+                    ->get();
+        
+        return view('pages.purchases', ['purchases' => $purchases]);
+    }
+    
+    public function find(){
+        return view('pages.find_purchases');
+    }
+
     public function view($id){
-        $purchase = Purchase::query()->find($id);
-        return ['purchase' => $purchase, 'products' => $purchase->purchaseProducts()->get()];
+        $purchase = Purchases::query()->find($id);
+        
+        $purchaseProducts = $purchase->purchaseProducts()->get();
+        
+        $products = [];
+        
+        foreach ($purchaseProducts as $sp) {
+            $products[] = [
+                'productId' => $sp->stockProduct->product->id,
+                'ammount' => $sp->ammount,
+                'name' => $sp->stockProduct->product->name,
+                'unit_price' => $sp->stockProduct->product->unit_price
+            ];
+        }
+        
+        return view('pages.purchase_products', ['purchase' => $purchase, 'products' => $products]);
     }
     
     /**

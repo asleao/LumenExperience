@@ -17,7 +17,7 @@ class CreateCustomerTable extends Migration
             $table->timestamps();
             $table->string('name',100);
             $table->date('birth_date');
-            $table->string('cpf',11);
+            $table->string('cpf',14);
             $table->string('phone',9);
             $table->string('address',250);
         });

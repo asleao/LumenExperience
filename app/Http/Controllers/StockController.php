@@ -60,7 +60,7 @@ class StockController extends Controller{
                 'stock_id'=> $stock->id
             ]);
         }   
-        return view('pages.home');
+        return view('pages.stocks', ['stocks' => Stock::all()]);
     }
     
     public function getProducts($id){

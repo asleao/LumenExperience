@@ -1,36 +1,38 @@
 @extends('layouts.sbadmin2')
 @section('brand-title')
-Estoques
+Compras
 @stop
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Estoques Cadastrados
+                Compras buscadas
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="dataTable_wrapper">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-stocks">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-purchase">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>  
-                                <th>Tipo</th>  
-                                <th>Estoquista</th>
+                                <th>Data da Compra</th>  
+                                <th>Cliente</th>  
+                                <th>Vendedor</th>
+                                <th>Estoque</th>
                                 <th>Detalhar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($stocks as $stock)
+                            @foreach($purchases as $purchase)
                             <tr>
-                                <td>{{$stock->id}}</td>
-                                <td>{{$stock->name}}</td> 
-                                <td>{{$stock->type}}</td>
-                                <td>{{$stock->stocker->name}}</td>                               
+                                <td>{{$purchase->id}}</td>
+                                <td>{{$purchase->created_at}}</td> 
+                                <td>{{$purchase->customer->name}}</td>
+                                <td>{{$purchase->employee->name}}</td>                              
+                                <td>{{$purchase->stock->name}}</td>
                                 <td>
-                                    <a class="btn btn-default" href="/stock/{{$stock->id}}">
+                                    <a class="btn btn-default" href="/purchase/view/{{$purchase->id}}">
                                         Visualizar
                                     </a>
                                 </td>
@@ -53,7 +55,7 @@ Estoques
 
 <script>
     $(document).ready(function () {
-        $('#dataTables-stocks').DataTable({
+        $('#dataTables-employees').DataTable({
             responsive: true
         });
     });
